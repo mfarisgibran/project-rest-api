@@ -1,4 +1,4 @@
-console.log("Rest API");
+const countryFactElement = document.getElementById("country-fact");
 
 const getIndonesiaData = async () => {
   try {
@@ -6,7 +6,6 @@ const getIndonesiaData = async () => {
       "https://restcountries.eu/rest/v2/name/indonesia"
     );
     const data = await response.json();
-    console.log(data); //Array containing Indonesia data
 
     const countryName = data[0].name;
 
@@ -17,6 +16,8 @@ const getIndonesiaData = async () => {
     const countryFact = `${countryCapital} is the Capital of ${countryName} with ${countryCurrency} as its currency.`;
 
     console.log(countryFact);
+
+    countryFactElement.innerText = countryFact;
   } catch (error) {
     console.log(error);
   }
